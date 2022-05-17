@@ -1,4 +1,4 @@
-function test()      {
-    return (<div className="hhh"></div>)
+function test() {
+  return <div className="hhh2"></div>;
 }
-export default     test;
+export default test;
