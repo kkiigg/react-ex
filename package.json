@@ -11,6 +11,7 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "react": "^18.1.0",
+    "react-axios": "^2.0.5",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.6.4",
@@ -21,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "json-server": "json-server --watch ./__json__db__mock/db.json --port 3004"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +54,6 @@
     "prettier": "2.6.2"
   },
   "lint-staged": {
-    "*.{js,css,md,ts,tsx}": "prettier --write"
+    "*.{js,css,md,ts,tsx,jsx}": "prettier --write"
   }
 }
