@@ -4,17 +4,25 @@ import { SearchList } from "./SearchList";
 import { useState, useEffect } from "react";
 import { fetchData } from "../../util/fetch";
 // import {JSX} from 'react'
+interface Project {
+  id: string;
+  name: string;
+}
+type User = {
+  id: number;
+  name: string;
+};
 
 export const ListPage = () => {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<Project[]>([]);
   const [params, setParams] = useState({
     name: "",
     posiId: "",
   });
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   async function getUsers() {
-    let res: any = await fetchData("http://localhost:3004/user");
+    let res = await fetchData<User[]>("http://localhost:3004/user");
     setUsers(res);
   }
   async function getList() {
@@ -27,7 +35,9 @@ export const ListPage = () => {
       arr.push("userid=" + params.posiId);
     }
     query += arr.join("&");
-    let res: any = await fetchData("http://localhost:3004/project" + query);
+    let res = await fetchData<Project[]>(
+      "http://localhost:3004/project" + query
+    );
     setList(res);
   }
   useEffect(() => {
