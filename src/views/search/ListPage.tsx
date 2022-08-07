@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { SearchPanel } from "./SearchPanel";
 import { SearchList } from "./SearchList";
 import { useState, useEffect } from "react";
@@ -13,7 +14,7 @@ type User = {
   name: string;
 };
 
-export const ListPage = () => {
+export const ListPage = ({ dispatch }) => {
   const [list, setList] = useState<Project[]>([]);
   const [params, setParams] = useState({
     name: "",
@@ -39,6 +40,7 @@ export const ListPage = () => {
       "http://localhost:3004/project" + query
     );
     setList(res);
+    console.log("222S");
   }
   useEffect(() => {
     getUsers();
@@ -58,3 +60,4 @@ export const ListPage = () => {
     </>
   );
 };
+export default connect()(ListPage);
