@@ -1,16 +1,35 @@
-import React, { FormEvent, useState } from "react";
-import { Typography, Slider, Row, Col, Pagination, List } from "antd";
+import React, { FormEvent, useState, useContext } from "react";
+import { Typography, Slider, Row, Col, Pagination, List, Select } from "antd";
 import "./index.less";
 import styled from "@emotion/styled";
-
+import { useLocation } from "react-router-dom";
+import Ex2 from "./ex2";
+import ThemeContext from "../../context/ThemeContext";
 const { Paragraph, Text } = Typography;
 
 export const Andt = () => {
   const onChangeHandlel = (evt) => console.log(evt);
   const tableData = ["hhh", "xxx", "ggg"];
   const [loading, setLoading] = useState(false);
+
+  const location = useLocation();
+  console.log("location", location);
+
+  const handleSelectchange = (val) => {
+    console.log(val, typeof val);
+  };
+  let themeContext = useContext(ThemeContext);
   return (
     <>
+      <Ex2>
+        <p style={{ color: themeContext.color }} onClick={themeContext.change}>
+          i am children,theme is {themeContext.color}
+        </p>
+      </Ex2>
+      <Select allowClear onChange={handleSelectchange}>
+        <Select.Option value={undefined}>default</Select.Option>
+        <Select.Option value={1}>1</Select.Option>
+      </Select>
       <ContainerBox>
         <p className="hhh">jhhhh i m pink</p>
         <IconSm></IconSm>

@@ -2,7 +2,7 @@
   "user": [
     {
       "id": 1,
-      "name":"tom"
+      "name": "tom"
     },
     {
       "name": "\"jack\"",
@@ -10,34 +10,34 @@
     },
     {
       "id": 3,
-      "name":"tomson"
+      "name": "tomson"
     },
     {
-      "name":"jackson",
+      "name": "jackson",
       "id": 4
     }
   ],
-  "project":[
+  "project": [
     {
-      "id":1,
-      "name":"支付宝",
-      "userid":2
+      "id": 1,
+      "name": "支付宝",
+      "userid": 2
     },
     {
-      "id":2,
-      "name":"微信",
-      "userid":2
+      "id": 2,
+      "name": "微信",
+      "userid": 2
     },
     {
-      "id":3,
-      "name":"饿了没",
-      "userid":4
+      "id": 3,
+      "name": "饿了没",
+      "userid": 4
     }
   ],
-  "users":{
-      "countDetail":{
-        "count":0,
-        "msg":"ahha"
-      }
+  "users": {
+    "countDetail": {
+      "count": 0,
+      "msg": "ahha"
+    }
   }
 }

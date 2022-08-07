@@ -1,5 +1,7 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom/client";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import "./index.css";
 import "./style/app.less";
 import App from "./App";
@@ -9,16 +11,24 @@ import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.less";
 import { BrowserRouter } from "react-router-dom";
 
+import ThemeProvidor from "./context/ThemeProvidor";
+// import todoApp from './state'
+import store from "./state";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <ConfigProvider locale={zhCN}>
-    <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
+    <ThemeProvidor>
+      <Provider store={store}>
+        <React.StrictMode>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </React.StrictMode>
+      </Provider>
+    </ThemeProvidor>
   </ConfigProvider>
 );
 

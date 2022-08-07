@@ -16,7 +16,10 @@ export function fetchData<T>(url: string, params?: fetchParams): Promise<T> {
       headers: {
         "Content-Type": "application/json",
       },
-      body: params && params.body ? JSON.stringify(params.body) : "",
+      body:
+        params && params.body && params.body !== "GET"
+          ? JSON.stringify(params.body)
+          : null,
     })
       .then(async (res: any) => {
         if (res.ok) {
